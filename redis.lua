@@ -1808,8 +1808,8 @@ if not isdebugging then
   os.exit(0)
 end
 
--- set maxlen if provided
-if maxlen then msg, err = check(client:ldbmaxlen(maxlen)) end
+-- set maxlen if provided, otherwise go MMI
+msg, err = check(client:ldbmaxlen(maxlen or 0))
 
 -- connect to the debugger
 local server, err = socket.tcp()
